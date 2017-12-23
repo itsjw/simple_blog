@@ -8,16 +8,11 @@ from .models import Post
 class PostListView(ListView):
     model = Post
     template_name = "blog/post_list.html"
+    paginate_by = 3
 
     def get_queryset(self, *args, **kwargs):
         return Post.published.all()
-    
 
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     import pdb; pdb.set_trace()
-    #     context['now'] = timezone.now()
-    #     return context
 
 class DetailPostView(DetailView):
     model = Post
