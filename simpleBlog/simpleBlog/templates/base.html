@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{% block title %}{% endblock title %}</title>
+    <link href="{% static 'bulma/css/bulma.css'}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <section class="is-fluid body-style">
+            <div id="content" , class="container">
+                {% block content %} {% endblock content %}
+            </div>
+            <aside id="sidebar" class="section">
+                <h2 class="title is-2">This is my personal blog</h2>
+                <p>Yep, still mine!</p>
+            </aside>
+        </section>
+    </div>
+</body>
+
+
+</html>
