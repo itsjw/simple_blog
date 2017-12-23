@@ -103,3 +103,7 @@ venv.bak/
 # mypy
 .mypy_cache/
 *_db.sqlite3
+static/
+media/
+
+.idea
