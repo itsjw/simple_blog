@@ -123,5 +123,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-STATIC_URL = '/static/'
+# import pdb; pdb.set_trace()
+
+STATIC_URL = os.path.join(PARENT_BASE_DIR, "dependencies/")
+STATICFILES_DIRS = [
+    os.path.join(PARENT_BASE_DIR, "dependencies/")
+]
+
 STATIC_ROOT = os.path.join(PARENT_BASE_DIR, "static")

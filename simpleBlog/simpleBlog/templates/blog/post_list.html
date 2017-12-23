@@ -3,7 +3,8 @@
 {% block title}Blog{% endblock title}
 
 {% block content %}
-    {% for post in object_list %}
+    {% if post_list %}
+    {% for post in post_list %}
         <h2 class="title is-2">
             <a href="{{ post.get_absolute_url }}"> {{post.title}} </a>
         </h2>
@@ -15,4 +16,8 @@
         </div>
         {{post.body}}
     {% endfor %}
+    {% else %}
+      <h2 class="title is-2 has-text-centered">There is no any post :(</h2>
+      <p class="has-text-centered">Please add some one!</p>
+    {% endif %}
 {% endblock content %}
