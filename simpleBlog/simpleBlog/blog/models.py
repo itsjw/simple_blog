@@ -3,14 +3,13 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.utils import timezone
 
+from taggit.managers import TaggableManager
 
-# Model Managers
+
 class PostPublishedManager(models.Manager):
     def get_queryset(self, *args, **kwargs):
         return super(PostPublishedManager, self).get_queryset(
             *args, **kwargs).filter(status="published")
-
-# Models
 
 
 class Post(models.Model):
@@ -37,6 +36,8 @@ class Post(models.Model):
 
     status = models.CharField(
         max_length=10, choices=STATUS_CHOICES, default="draft")
+
+    tags = TaggableManager()
 
     class Meta:
         ordering = ["-publish"]
