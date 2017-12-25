@@ -3,22 +3,23 @@
 {% block title %}Blog{% endblock title %}
 
 {% block content %}
-    {% if post_list %}
+  {% if post_list %}
     {% for post in post_list %}
+      <article class="section">
         <h2 class="title is-2">
-            <a href="{{ post.get_absolute_url }}"> {{post.title}} </a>
+          <a href="{{ post.get_absolute_url }}"> {{ post.title }} </a>
         </h2>
         <p>
-          Published {{post.publish}} by {{post.author}}  
+          Published {{ post.publish }} by {{ post.author }}
         </p>
-        <article>
-            {{post.body|truncatewords:30|linebreaks}}
-        </article>
-    {% endfor %}
-    {% else %}
-      <h2 class="title is-2 has-text-centered">There is no any post :(</h2>
-      <p class="has-text-centered">Please add some one!</p>
-    {% endif %}
 
-    {% include "blog/pagination.html" with page=page_obj %}
+        {{ post.body|truncatewords:30|linebreaks }}
+      </article>
+    {% endfor %}
+  {% else %}
+    <h2 class="title is-2 has-text-centered">There is no any post :(</h2>
+    <p class="has-text-centered">Please add some one!</p>
+  {% endif %}
+
+  {% include "blog/pagination.html" with page=page_obj %}
 {% endblock content %}

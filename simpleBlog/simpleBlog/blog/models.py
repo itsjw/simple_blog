@@ -49,3 +49,22 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
+    name = models.CharField(max_length=120)
+    email = models.EmailField()
+    body = models.TextField()
+
+    active = models.BooleanField(default=True)
+
+    publish = models.DateTimeField(default=timezone.now)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ("created", )
+
+    def __str__(self):
+        return "Comment added by {} for post {}".format(self.name, self.post)
