@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+{% load blog_tags %}
+
+
 
 {% block title %}{{ post.title }}{% endblock title %}
 
@@ -19,7 +22,7 @@
         </p>
         {{ comment.created }}
         <p>
-          {{ comment.body|linebreaks }}
+          {{ comment.body|markdown }}
         </p>
       </article>
     {% empty %}

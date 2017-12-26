@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load blog_tags %}
+
 
 {% block title %}Blog{% endblock title %}
 
@@ -20,7 +22,7 @@
           Published {{ post.publish }} by {{ post.author }}
         </p>
 
-        {{ post.body|truncatewords:30|linebreaks }}
+        {{ post.body|markdown|truncatewords_html:30 }}
       </article>
     {% endfor %}
   {% else %}
