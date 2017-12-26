@@ -8,8 +8,7 @@ from taggit.managers import TaggableManager
 
 class PostPublishedManager(models.Manager):
     def get_queryset(self, *args, **kwargs):
-        return super(PostPublishedManager, self).get_queryset(
-            *args, **kwargs).filter(status="published")
+        return super(PostPublishedManager, self).get_queryset(*args, **kwargs).filter(status="published")
 
 
 class Post(models.Model):
@@ -18,10 +17,8 @@ class Post(models.Model):
         ("published", "published")
     )
 
-    # managers
     published = PostPublishedManager()
     objects = models.Manager()
-    # fields
 
     author = models.ForeignKey(User, on_delete=models.PROTECT)
 
@@ -34,8 +31,7 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    status = models.CharField(
-        max_length=10, choices=STATUS_CHOICES, default="draft")
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="draft")
 
     tags = TaggableManager()
 
