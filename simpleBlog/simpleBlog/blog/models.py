@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.utils import timezone
 
-from taggit.managers import TaggableManager
+# from taggit.managers import TaggableManager
 
 
 class PostPublishedManager(models.Manager):
@@ -33,7 +33,7 @@ class Post(models.Model):
 
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="draft")
 
-    tags = TaggableManager()
+    # tags = TaggableManager()
 
     class Meta:
         ordering = ["-publish"]

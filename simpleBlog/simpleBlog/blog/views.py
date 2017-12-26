@@ -2,7 +2,7 @@ from django.core.mail import send_mail
 from django.shortcuts import render, get_object_or_404
 from django.views import View
 from django.views.generic.list import ListView
-from taggit.models import Tag
+# from taggit.models import Tag
 
 from .forms import EmailPostForm, CommentPostForm
 from .models import Post
@@ -17,16 +17,16 @@ class PostListView(ListView):
         tag = None
         return Post.published.all()
 
-    def get(self, request, tag_slug=None, *args, **kwargs):
-        super(PostListView, self).get(request, tag_slug=None, *args, **kwargs)
-        tag = None
-        if tag_slug:
-            tag = get_object_or_404(Tag, slug=tag_slug)
-            import pdb; pdb.set_trace()
-            self.object_list = self.object_list.filter(tags__in=[tag])
-        context = self.get_context_data()
-        context["tag"] = tag
-        return render(request, self.template_name, context)
+    # def get(self, request, tag_slug=None, *args, **kwargs):
+    #     super(PostListView, self).get(request, tag_slug=None, *args, **kwargs)
+    #     tag = None
+    #     if tag_slug:
+    #         tag = get_object_or_404(Tag, slug=tag_slug)
+    #         import pdb; pdb.set_trace()
+    #         self.object_list = self.object_list.filter(tags__in=[tag])
+    #     context = self.get_context_data()
+    #     context["tag"] = tag
+    #     return render(request, self.template_name, context)
 
 
 class DetailPostView(View):

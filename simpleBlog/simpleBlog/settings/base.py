@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # third-party apps
-    "taggit",
+    "django.contrib.sites",
+    "django.contrib.sitemaps",
+    # "taggit",
     # custom_apps
     "simpleBlog.blog",
 ]
@@ -132,3 +134,6 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(PARENT_BASE_DIR, "static")
+
+SITE_ID = 1
+
