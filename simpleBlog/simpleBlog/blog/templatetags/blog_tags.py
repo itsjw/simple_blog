@@ -15,15 +15,17 @@ register = template.Library()
 def total_posts():
     return Post.published.count()
 
-@register.inclusion_tag("blog/latest_posts.html")
+@register.inclusion_tag("blog/filtered_posts.html")
 def show_latest_posts(count=5):
     latest_posts = Post.published.order_by("-publish")[:count]
     return {"latest_posts": latest_posts}
 
 # wrapper for deprecated assignment_tag
-@register.simple_tag()
-def most_commented_posts(count=5):
-    return Post.published.annotate(total_comments=Count("comments")).order_by("-total_comments")[:count]
+
+@register.inclusion_tag("blog/filtered_posts.html")
+def show_most_commented_posts(count=5):
+    latest_posts = Post.published.annotate(total_comments=Count("comments")).order_by("-total_comments")[:count]
+    return {"latest_posts": latest_posts}
 
 @register.filter(name="markdown")
 def markdown_format(text):

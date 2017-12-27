@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # third-party apps
     "django.contrib.sites",
     "django.contrib.sitemaps",
+    # "haystack",
     # "taggit",
     # custom_apps
     "simpleBlog.blog",
@@ -126,7 +127,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-# import pdb; pdb.set_trace()
 
 STATIC_URL = os.path.join(PARENT_BASE_DIR, "dependencies/")
 STATICFILES_DIRS = [
@@ -137,3 +137,10 @@ STATIC_ROOT = os.path.join(PARENT_BASE_DIR, "static")
 
 SITE_ID = 1
 
+#
+# HAYSTACKK_CONNECTIONS = {
+#     "default": {
+#         "ENGINE": "haystack.backends.solr_backend.SolrEngine",
+#         "URL": "http://127.0.0.1:8983/solr/blog"
+#     }
+# }

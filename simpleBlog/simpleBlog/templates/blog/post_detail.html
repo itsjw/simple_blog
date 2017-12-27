@@ -2,46 +2,54 @@
 {% load blog_tags %}
 
 
-
 {% block title %}{{ post.title }}{% endblock title %}
 
 {% block content %}
-  <div class="section">
-    <article class=>
-      <h1 class="title is-1">{{ post.title }}</h1>
-      <p>Published {{ post.publish }} by {{ post.author }}</p>
+  <article class="post has-text-centered">
+    <div class="post-head">
+      <h2 class="title is-2 ">{{ post.title }}</h2>
+      <p class="subtitle">Published {{ post.publish }} by {{ post.author }}</p>
+    </div>
+    <div class="post-content-detail">
       {{ post.body|linebreaks }}
-    </article>
-    {% with comments.count as total_comments %}
-      <h5 class="title is-5">{{ total_comments }} comment{{ total_comments|pluralize:"s" }}</h5>
-    {% endwith %}
-    {% for comment in comments %}
+    </div>
+  </article>
+
+
+  {% with comments.count as total_comments %}
+    <h5 class="title is-5">{{ total_comments }} comment{{ total_comments|pluralize:"s" }}</h5>
+  {% endwith %}
+  <div>
+    {% if new_comment %}
+      <h5 class="title is-5">Your comment is added</h5>
+    {% else %}
+      <div class="post-add-comment">
+      <h5 class="title is-5">Add new comment</h5>
+      <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <p>
+          <input type="submit" value="Add comment">
+        </p>
+      </form>
+      </div>
+    {% endif %}
+  </div>
+  {% for comment in comments %}
+    <div class="post-comment-section">
       <article class="section">
-        <p class="is-info">
+        <p class="post-comment-head">
           Comment {{ forloop.counter }} added by {{ comment.name }}
         </p>
         {{ comment.created }}
-        <p>
+        <p class="post-comment-body">
           {{ comment.body|markdown }}
         </p>
       </article>
-    {% empty %}
-      There is no comments
-    {% endfor %}
-    <div class="section">
-      {% if new_comment %}
-      <h5 class="title is-5">Your comment is added</h5>
-      {% else %}
-        <h5 class="title is-5">Add new comment</h5>
-        <form action="" method="post">
-        {% csrf_token %}
-          {{ form.as_p }}
-          <p>
-            <input type="submit" value="Add comment">
-          </p>
-        </form>
-      {% endif %}
     </div>
-  </div>
+  {% empty %}
+    <p>There is no comments</p>
+  {% endfor %}
+
 
 {% endblock content %}

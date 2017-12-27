@@ -7,42 +7,111 @@
 <head>
   <title>{% block title %}{% endblock title %}</title>
   <link rel="stylesheet" href="{% static 'css/bulma/css/bulma.css' %}" type="text/css" charset="utf-8">
+  <link rel="stylesheet" href="{% static 'css/custom/my_css.css' %}" type="text/css" charset="utf-8">
 </head>
 
+
 <body>
-<div class="container">
-  <section class="is-fluid body-style">
-    <div class="columns">
-      <div class="column is-three-quarters">
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="title is-2" href="{% url 'blog:post_list' %}">MySipleBlog</a>
+  </div>
+  <div class="navbar-item navbar-end">
+    <input class="input" placeholder="Search"/>
+  </div>
+</nav>
+
+<div class="page-container">
+  <div class="hero-body container ">
+    <div class="columns ">
+      <main class="column is-three-quarters main-content">
         <div id="content">
           {% block content %} {% endblock content %}
         </div>
-      </div>
-      <div class="column is-one-quarter">
-        <aside id="sidebar" class="section">
-          <h2 class="title is-2">This is my personal blog</h2>
-          <p>Total posts: {% total_posts %}</p>
-          <div>
-            <h4 class="title is-4">Most recent posts</h4>
+      </main>
+
+
+      <aside class="column is-one-quarter sidebar">
+        <div id="sidebar">
+          <div class="sidebar-head">
+            <h4 class="title is-4 has-text-centered sidebar-subtitle">Total posts: {% total_posts %}</h4>
+          </div>
+
+          <div class="sidebar-item has-text-centered">
+            <h4 class="title is-4 sidebar-title">Most recent posts</h4>
             {% show_latest_posts 5 %}
           </div>
-          <div>
-            <h4 class="title is-4">Most commented posts</h4>
-            <ul>
-              {% most_commented_posts as posts%}
-              {% for post in posts %}
-                <li>
-                  <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-                </li>
-              {% endfor %}
-            </ul>
+
+          <div class="sidebar-item has-text-centered">
+            <h4 class="title is-4 sidebar-title">Most commented posts</h4>
+            {% show_most_commented_posts 5 %}
           </div>
-        </aside>
-      </div>
+
+
+        </div>
+      </aside>
+
     </div>
-  </section>
+  </div>
 </div>
+
+<footer class="footer is-dark">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        This is my personal simple blog and created it for for educational purposes.
+      </p>
+      <p>
+        I wanted try something simple and not complex for Xmas time, so i done it :)
+        If you have some advices or just want send me some feedback you can contact with me:
+      </p>
+      <p>
+        <a class="section" href="mailto:koziol1kami@gmail.com">koziol1kamil@gmail.com</a>
+        <a class="section" href="https://www.linkedin.com/in/kamil-koziol111/">LinkedIn</a>
+        <a class="section" href="https://github.com/koziolKamil">Github</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
 </body>
+
+
+{#<body>#}
+{#<div class="container">#}
+{#  <section class="is-fluid body-style">#}
+{#    <div class="columns">#}
+{#      <div class="column is-three-quarters">#}
+{#        <div id="content">#}
+{#          {% block content %} {% endblock content %}#}
+{#        </div>#}
+{#      </div>#}
+{#      <div class="column is-one-quarter">#}
+{#        <aside id="sidebar" class="section">#}
+{#          <h2 class="title is-2">This is my personal blog</h2>#}
+{#          <p>Total posts: {% total_posts %}</p>#}
+{#          <div>#}
+{#            <h4 class="title is-4">Most recent posts</h4>#}
+{#            {% show_latest_posts 5 %}#}
+{#          </div>#}
+{#          <div>#}
+{#            <h4 class="title is-4">Most commented posts</h4>#}
+{#            <ul>#}
+{#              {% most_commented_posts as posts%}#}
+{#              {% for post in posts %}#}
+{#                <li>#}
+{#                  <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>#}
+{#                </li>#}
+{#              {% endfor %}#}
+{#            </ul>#}
+{#          </div>#}
+{#        </aside>#}
+{#      </div>#}
+{#    </div>#}
+{#  </section>#}
+{#</div>#}
+{#</body>#}
 
 
 </html>

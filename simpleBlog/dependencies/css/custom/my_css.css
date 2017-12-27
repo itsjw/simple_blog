@@ -1,0 +1,106 @@
+.page-container {
+    background-color: #fafafa;
+}
+
+.main-content {
+    padding-top: 0px;
+}
+
+.post {
+    margin-bottom: 2em;
+    background-color: #fffeff;
+    border: solid 1px lightgray;
+    border-radius: 5px;
+    padding: 2em;
+
+}
+
+.post-head {
+    border-bottom: solid 2px lightgray;
+}
+
+.post-content {
+    padding-top: 1em;
+
+}
+
+.post-content-detail {
+    padding-top: 2em;
+    font-size: large;
+
+}
+
+.post-comment-section {
+    background-color: #fffeff;
+    border: solid 1px darkgrey;
+    border-radius: 20px;
+    margin: 20px;
+
+}
+.post-add-comment {
+    background-color: #fffeff;
+    border: solid 1px darkgrey;
+    border-radius: 20px;
+    margin: 20px;
+    padding: 1em;
+
+}
+
+.post-comment-section .post-comment-head {
+    font-size: small;
+    border-bottom: solid 1px darkgrey;
+}
+
+.post-comment-section .post-comment-body {
+    margin-bottom: 2em;
+}
+
+.sidebar {
+    background-color: #3c3b37;
+    color: whitesmoke;
+    border: hidden 1px lightgray;
+    border-radius: 10px;
+
+}
+
+.sidebar-head {
+    background-color: #3c3b37;
+    color: inherit;
+    margin-bottom: 2em;
+    border-bottom: solid 2px gainsboro;
+}
+
+.sidebar-item {
+    color: inherit;
+    margin-bottom: 2em;
+    /*border-left: solid 15px lightgray;*/
+    /*padding-left: 1em;*/
+    border-radius: 10px;
+}
+
+.sidebar .sidebar-title {
+    color: whitesmoke;
+}
+
+.sidebar .sidebar-subtitle {
+    color: lightgray;
+}
+
+
+.sidebar .sidebar-list-item{
+    background-color: whitesmoke;
+    color: lightgray;
+    border: solid 1px darkgrey;
+    border-radius: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+
+    margin-bottom: 1em;
+
+}
+
+.sidebar .sidebar-list-item a{
+    color: black;
+    font-size: large;
+
+}
