@@ -17,8 +17,8 @@ class Post(models.Model):
         ("published", "published")
     )
 
-    published = PostPublishedManager()
     objects = models.Manager()
+    published = PostPublishedManager()
 
     author = models.ForeignKey(User, on_delete=models.PROTECT)
 
