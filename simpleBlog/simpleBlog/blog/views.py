@@ -5,7 +5,7 @@ from django.views.generic.list import ListView
 # from taggit.models import Tag
 
 from .forms import EmailPostForm, CommentPostForm
-from .models import Post
+from .models import Post, Comment
 
 
 class PostListView(ListView):
@@ -55,9 +55,12 @@ class DetailPostView(View):
         comment_form = self.form_class(request.POST)
 
         if comment_form.is_valid():
-            new_comment = comment_form.save(commit=False)
-            new_comment.post = post
-            new_comment.save()
+            cd = comment_form.cleaned_data
+            comment = Comment.objects.filter(post=post, name=cd["name"], email=cd["email"], body=cd["body"])
+            if not comment:
+                new_comment = comment_form.save(commit=False)
+                new_comment.post = post
+                new_comment.save()
             context_data["new_comment"] = True
         else:
             comment_form = self.form_class

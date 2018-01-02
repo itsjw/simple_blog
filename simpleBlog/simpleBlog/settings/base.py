@@ -40,11 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     # third-party apps
     "django.contrib.sites",
     "django.contrib.sitemaps",
+    "froala_editor",
     # "haystack",
     # "taggit",
+
     # custom_apps
     "simpleBlog.blog",
 ]

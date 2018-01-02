@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 
 # from taggit.managers import TaggableManager
+from froala_editor.fields import FroalaField
+
 
 
 class PostPublishedManager(models.Manager):
@@ -25,7 +27,7 @@ class Post(models.Model):
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, unique_for_date="publish")
 
-    body = models.TextField()
+    body = FroalaField()
 
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)

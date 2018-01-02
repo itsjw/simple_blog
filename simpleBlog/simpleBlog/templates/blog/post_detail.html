@@ -11,7 +11,7 @@
       <p class="subtitle">Published {{ post.publish }} by {{ post.author }}</p>
     </div>
     <div class="post-content-detail">
-      {{ post.body|linebreaks }}
+      {{ post.body|markdown|linebreaks }}
     </div>
   </article>
 

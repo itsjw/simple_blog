@@ -30,4 +30,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("simpleBlog.blog.urls", namespace="blog")),
     path('sitemap.xml', sitemap, {"sitemaps": sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    path("froala_editor/", include('froala_editor.urls')),
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
