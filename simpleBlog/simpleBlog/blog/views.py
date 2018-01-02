@@ -58,6 +58,7 @@ class DetailPostView(View):
             new_comment = comment_form.save(commit=False)
             new_comment.post = post
             new_comment.save()
+            context_data["new_comment"] = True
         else:
             comment_form = self.form_class
         context_data["form"] = comment_form
