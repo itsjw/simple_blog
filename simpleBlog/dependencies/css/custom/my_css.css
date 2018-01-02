@@ -57,40 +57,37 @@
 
 .sidebar {
     background-color: #ebe4cc;
-    color: whitesmoke;
+    color: black;
     border: hidden 1px lightgray;
     border-radius: 10px;
 
 }
 
 .sidebar-head {
-    background-color: #3c3b37;
-    color: inherit;
+    color: black;
     margin-bottom: 2em;
-    border-bottom: solid 2px gainsboro;
+    border-bottom: solid 2px black;
 }
 
 .sidebar-item {
-    color: inherit;
+    color: black;
     margin-bottom: 2em;
-    /*border-left: solid 15px lightgray;*/
-    /*padding-left: 1em;*/
     border-radius: 10px;
 }
 
 .sidebar .sidebar-title {
-    color: whitesmoke;
+    color: black;
 }
 
 .sidebar .sidebar-subtitle {
-    color: lightgray;
+    color: black;
 }
 
 
 .sidebar .sidebar-list-item{
     background-color: whitesmoke;
     color: lightgray;
-    border: solid 1px darkgrey;
+    border: solid 1px black;
     border-radius: 5px;
     padding-top: 2px;
     padding-bottom: 2px;
