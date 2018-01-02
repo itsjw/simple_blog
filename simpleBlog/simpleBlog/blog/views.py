@@ -19,13 +19,14 @@ class PostListView(ListView):
 
     # def get(self, request, tag_slug=None, *args, **kwargs):
     #     super(PostListView, self).get(request, tag_slug=None, *args, **kwargs)
-    #     tag = None
-    #     if tag_slug:
-    #         tag = get_object_or_404(Tag, slug=tag_slug)
-    #         import pdb; pdb.set_trace()
-    #         self.object_list = self.object_list.filter(tags__in=[tag])
+    #     # tag = None
+    #     # if tag_slug:
+    #     #     tag = get_object_or_404(Tag, slug=tag_slug)
+    #     #     import pdb; pdb.set_trace()
+    #     #     self.object_list = self.object_list.filter(tags__in=[tag])
     #     context = self.get_context_data()
-    #     context["tag"] = tag
+    #     import pdb; pdb.set_trace()
+    #     # context["tag"] = tag
     #     return render(request, self.template_name, context)
 
 

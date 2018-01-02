@@ -11,7 +11,7 @@
       <p class="subtitle">Published {{ post.publish }} by {{ post.author }}</p>
     </div>
     <div class="post-content-detail">
-      {{ post.body|markdown|linebreaks }}
+      {{ post.body|markdown|truncatewords_html:150 }}
     </div>
   </article>
 
@@ -27,7 +27,14 @@
       <h5 class="title is-5">Add new comment</h5>
       <form action="" method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+{#        {{ form.as_p }}#}
+        <div>
+          {% for field in form %}
+            <p>{{ field.label }}:</p>
+            <p>{{ field }}</p>
+            <br>
+          {% endfor %}
+        </div>
         <p>
           <input type="submit" value="Add comment">
         </p>

@@ -1,5 +1,6 @@
-<div class="post-list">
+<div class="post">
   <span>
+    {% with page_obj as page %}
     {% if page.has_previous %}
     <a href="?page={{ page.previous_page_number }}">Previous</a>
     {% endif %}
@@ -9,5 +10,6 @@
         {% if page.has_next %}
     <a href="?page={{ page.next_page_number }}">Next</a>
     {% endif %}
+  {% endwith %}
   </span>
 </div>
